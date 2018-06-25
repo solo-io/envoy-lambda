@@ -16,18 +16,17 @@ envoy_cc_library(
     name = "aws_authenticator_lib",
     srcs = ["aws_authenticator.cc"],
     hdrs = ["aws_authenticator.h"],
-    repository = "@envoy",
     external_deps = ["ssl"],
+    repository = "@envoy",
     deps = [
-         "@envoy//include/envoy/buffer:buffer_interface",
-         "@envoy//include/envoy/http:header_map_interface",
-         "@envoy//source/common/common:assert_lib",
-         "@envoy//source/common/common:empty_string",
-         "@envoy//source/common/common:hex_lib",
-         "@envoy//source/common/http:headers_lib",
-         "@envoy//source/common/http:utility_lib",
-         "@envoy//source/common/config:json_utility_lib",
-         
+        "@envoy//include/envoy/buffer:buffer_interface",
+        "@envoy//include/envoy/http:header_map_interface",
+        "@envoy//source/common/common:assert_lib",
+        "@envoy//source/common/common:empty_string",
+        "@envoy//source/common/common:hex_lib",
+        "@envoy//source/common/config:json_utility_lib",
+        "@envoy//source/common/http:headers_lib",
+        "@envoy//source/common/http:utility_lib",
     ],
 )
 
@@ -63,8 +62,8 @@ envoy_cc_library(
     deps = [
         "//source/common/http/filter:aws_authenticator_lib",
         "//source/common/http/filter:function_retriever_lib",
+        "@envoy//source/common/http:filter_utility_lib",
         "@solo_envoy_common//include/envoy/http:metadata_accessor_interface",
         "@solo_envoy_common//source/common/http:solo_filter_utility_lib",
-        "@envoy//source/common/http:filter_utility_lib",
     ],
 )
